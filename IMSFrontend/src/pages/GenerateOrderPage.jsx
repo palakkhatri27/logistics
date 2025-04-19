@@ -51,8 +51,8 @@ const GenerateOrderPage = () => {
     console.log(body)
 
     try {
-      const respone = await ApiService.createOrder(body);
-      showMessage(respone.message);
+      const response = await ApiService.createOrder(body);
+      showMessage(response.message);
       resetForm();
     } catch (error) {
       showMessage(
