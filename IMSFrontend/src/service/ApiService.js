@@ -239,7 +239,80 @@ export default class ApiService {
         return response.data;
     }
 
+    /**Supplier EDNPOINTS */
+    static async addSupplier(supplierData) {
+        const response = await axios.post(`${this.BASE_URL}/suppliers/add`, supplierData, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
 
+    static async getAllSuppliers() {
+        const response = await axios.get(`${this.BASE_URL}/suppliers/all`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+
+    static async getSupplierById(supplierId) {
+        const response = await axios.get(`${this.BASE_URL}/suppliers/${supplierId}`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    static async updateSupplier(supplierId, supplierData) {
+        const response = await axios.put(`${this.BASE_URL}/suppliers/update/${supplierId}`, supplierData, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    static async deleteSupplier(supplierId) {
+        const response = await axios.delete(`${this.BASE_URL}/suppliers/delete/${supplierId}`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    /**Client EDNPOINTS */
+    static async addClient(clientData) {
+        const response = await axios.post(`${this.BASE_URL}/clients/add`, clientData, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    static async getAllClients() {
+        const response = await axios.get(`${this.BASE_URL}/clients/all`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+
+    static async getClientById(clientId) {
+        const response = await axios.get(`${this.BASE_URL}/clients/${clientId}`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    static async updateClient(clientId, clientData) {
+        const response = await axios.put(`${this.BASE_URL}/clients/update/${clientId}`, clientData, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+
+    static async deleteClient(clientId) {
+        const response = await axios.delete(`${this.BASE_URL}/clients/delete/${clientId}`, {
+            headers: this.getHeader()
+        })
+        return response.data;
+    }
+    
     /**AUTHENTICATION CHECKER */
     static logout(){
         this.clearAuth()

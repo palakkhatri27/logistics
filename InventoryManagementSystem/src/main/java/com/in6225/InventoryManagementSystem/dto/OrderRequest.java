@@ -21,4 +21,6 @@ public class OrderRequest {
     @NotNull
     private OrderType orderType;
     private String description;
+    private Long supplierId;
+    private Long clientId;
 }

@@ -60,7 +60,7 @@ const handleUpdateStatus = async()=>{
     <Layout>
         
       {message && <p className="message">{message}</p>}
-      <div>
+      <div className="order-details-page">
         {order && (
            <>
            <div>
@@ -70,7 +70,7 @@ const handleUpdateStatus = async()=>{
                 <p>Description: {order.description}</p>
                 <p>Product Quantity: {order.productQuantity}</p>
                 <p>Total Price: {order.totalPrice.toFixed(2)}</p>
-                <p>Create AT: {new Date(order.createdAt).toLocaleString()}</p>
+                <p>Created At: {new Date(order.createdAt).toLocaleString()}</p>
 
                 {order.updatedAt && (
                 <p>Updated At: {new Date(order.updatedAt).toLocaleString()}</p>
@@ -87,6 +87,22 @@ const handleUpdateStatus = async()=>{
                 <p>Description: {order.product.description}</p>                
            </div>
 
+           {/* Supplier information */}
+           {order.supplier && (
+            <div>
+              <h2>Supplier Information</h2>
+              <p>Email: {order.supplier.email}</p>
+            </div>
+           )}
+
+           {/* Client information */}
+           {order.client && (
+            <div>
+              <h2>Client Information</h2>
+              <p>Email: {order.client.email}</p>
+            </div>
+           )}
+
            {/* User information */}
            <div>
                 <h2>User Information</h2>
@@ -96,7 +112,7 @@ const handleUpdateStatus = async()=>{
            </div>
 
            {/* UPDATE ORDER STATUS */}
-           <div>
+           <div className="order-status-update">
             <label>Order Status: </label>
             <select 
             value={orderStatus}

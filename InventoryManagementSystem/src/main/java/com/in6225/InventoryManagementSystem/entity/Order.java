@@ -44,6 +44,14 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier; // Only applicable if orderType == RECEIVE
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client; // Only applicable if orderType == SHIP
+
     @Override
     public String toString() {
         return "Order{" +
@@ -57,6 +65,8 @@ public class Order {
                 ", updateAt=" + updateAt +
                 ", product=" + product +
                 ", user=" + user +
+                ", supplier=" + (supplier != null ? supplier.getId() : null) +
+                ", client=" + (client != null ? client.getId() : null) +
                 '}';
     }
 }

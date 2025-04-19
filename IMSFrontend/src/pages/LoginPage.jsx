@@ -25,7 +25,7 @@ const LoginPage = () => {
       }
     } catch (error) {
       showMessage(
-        error.response?.data?.message || "Error Loggin in a User: " + error
+        error.response?.data?.message || "Error Logging in a User: " + error
       );
       console.log(error);
     }

@@ -10,6 +10,10 @@ import OrderPage from "./pages/OrderPage";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
 import GenerateOrderPage from "./pages/GenerateOrderPage";
 import ProfilePage from "./pages/ProfilePage";
+import SupplierPage from "./pages/SupplierPage";
+import ClientPage from "./pages/ClientPage";
+import AddEditSupplierPage from "./pages/CRUDSupplierPage";
+import AddEditClientPage from "./pages/CRUDClientPage";
 
 function App() {
   return (
@@ -21,6 +25,12 @@ function App() {
         <Route path="/register" element={<AdminRoute element={<RegisterPage/>}/>}/>
         <Route path="/category" element={<AdminRoute element={<CategoryPage/>}/>}/>
         <Route path="/product" element={<AdminRoute element={<ProductPage/>}/>}/>
+        <Route path="/supplier" element={<AdminRoute element={<SupplierPage/>}/>}/>
+        <Route path="/add-supplier" element={<AdminRoute element={<AddEditSupplierPage/>}/>}/>
+        <Route path="/edit-supplier/:supplierId" element={<AdminRoute element={<AddEditSupplierPage/>}/>}/>
+        <Route path="/client" element={<AdminRoute element={<ClientPage/>}/>}/>
+        <Route path="/add-client" element={<AdminRoute element={<AddEditClientPage/>}/>}/>
+        <Route path="/edit-client/:clientId" element={<AdminRoute element={<AddEditClientPage/>}/>}/>
 
         <Route path="/add-product" element={<AdminRoute element={<AddEditProductPage/>}/>}/>
         <Route path="/edit-product/:productId" element={<AdminRoute element={<AddEditProductPage/>}/>}/>

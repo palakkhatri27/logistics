@@ -38,5 +38,11 @@ public class Response {
     private OrderDTO order;
     private List<OrderDTO> orders;
 
+    private SupplierDTO supplier;
+    private List<SupplierDTO> suppliers;
+
+    private ClientDTO client;
+    private List<ClientDTO> clients;
+
     private final LocalDateTime timestamp = LocalDateTime.now();
 }

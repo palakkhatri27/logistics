@@ -262,7 +262,7 @@ td button:hover {
   transition: background-color 0.3s ease;
 }
 
-.add-cat button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
@@ -426,4 +426,62 @@ td button:hover {
 
 .form-group input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.order-details-page {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.order-details-page h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 6px;
+}
+
+.order-details-page p {
+  font-size: 1rem;
+  color: #444;
+  margin: 6px 0;
+}
+
+.order-status-update {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.order-status-update label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.order-status-update select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  min-width: 160px;
+}
+
+.order-status-update button {
+  padding: 10px 18px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

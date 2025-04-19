@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../service/ApiService";
+import Layout from "../component/Layout";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -33,8 +34,9 @@ const RegisterPage = () => {
   };
 
   return (
+    <Layout>
     <div className="register-container">
-      <h2>Register</h2>
+      <h2>Register New Manager</h2>
 
       {message && <p className="message">{message}</p>}
 
@@ -66,6 +68,7 @@ const RegisterPage = () => {
         <button type="submit">Register</button>
       </form>
     </div>
+    </Layout>
   );
 };
 

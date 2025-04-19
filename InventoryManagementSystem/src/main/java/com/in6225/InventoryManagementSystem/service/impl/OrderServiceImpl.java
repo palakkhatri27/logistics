@@ -2,16 +2,16 @@ package com.in6225.InventoryManagementSystem.service.impl;
 
 import com.in6225.InventoryManagementSystem.dto.OrderDTO;
 import com.in6225.InventoryManagementSystem.dto.OrderRequest;
-import com.in6225.InventoryManagementSystem.entity.Order;
+import com.in6225.InventoryManagementSystem.entity.*;
 import com.in6225.InventoryManagementSystem.enums.OrderType;
 import com.in6225.InventoryManagementSystem.enums.OrderStatus;
-import com.in6225.InventoryManagementSystem.entity.Product;
-import com.in6225.InventoryManagementSystem.entity.User;
 import com.in6225.InventoryManagementSystem.exception.NotFoundException;
+import com.in6225.InventoryManagementSystem.repository.ClientRepository;
 import com.in6225.InventoryManagementSystem.repository.OrderRepository;
 import com.in6225.InventoryManagementSystem.repository.ProductRepository;
 import com.in6225.InventoryManagementSystem.dto.Response;
 import com.in6225.InventoryManagementSystem.enums.OrderStatus;
+import com.in6225.InventoryManagementSystem.repository.SupplierRepository;
 import com.in6225.InventoryManagementSystem.service.OrderService;
 import com.in6225.InventoryManagementSystem.service.UserService;
 import com.in6225.InventoryManagementSystem.specification.OrderFilter;
@@ -38,14 +38,27 @@ public class OrderServiceImpl implements OrderService {
     private final ProductRepository productRepository;
     private final UserService userService;
     private final ModelMapper modelMapper;
+    private final SupplierRepository supplierRepository;
+    private final ClientRepository clientRepository;
 
     @Override
     public Response createOrder(OrderRequest orderRequest) {
+        System.out.println(orderRequest.getSupplierId());
+        System.out.println(orderRequest.getClientId());
         Long productId = orderRequest.getProductId();
+        Long supplierId = orderRequest.getSupplierId();
+        Long clientId = orderRequest.getClientId();
         Integer quantity = orderRequest.getQuantity();
         OrderType orderType = orderRequest.getOrderType();
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new NotFoundException("Product Not Found"));
+
+        Supplier supplier = supplierRepository.findById(supplierId)
+                .orElseThrow(() -> new NotFoundException("Supplier Not Found"));
+
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new NotFoundException("Client Not Found"));
+
         User user = userService.getCurrentLoggedInUser();
 
         //update the stock quantity and re-save
@@ -61,6 +74,8 @@ public class OrderServiceImpl implements OrderService {
                 .productQuantity(quantity)
                 .totalPrice(product.getPrice().multiply(BigDecimal.valueOf(quantity)))
                 .description(orderRequest.getDescription())
+                .supplier(supplier)
+                .client(client)
                 .build();
 
         orderRepository.save(order);

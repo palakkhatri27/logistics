@@ -28,4 +28,6 @@ public class OrderDTO {
     private LocalDateTime updateAt;
     private ProductDTO product;
     private UserDTO user;
+    private SupplierDTO supplier; // Set only for RECEIVE orders
+    private ClientDTO client;     // Set only for SHIP orders
 }

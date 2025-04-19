@@ -8,13 +8,21 @@ const GenerateOrderPage = () => {
   const [description, setDescription] = useState("");
   const [orderType, setOrderType] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [suppliers, setSuppliers] = useState([]);
+  const [supplierId, setSuppplierId] = useState("");
+  const [clients, setClients] = useState([]);
+  const [clientId, setClientId] = useState("");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const fetchproducts = async () => {
+    const fetchproductsSuppliersClients = async () => {
       try {
         const productData = await ApiService.getAllProducts();
+        const supplierData = await ApiService.getAllSuppliers();
+        const clientData = await ApiService.getAllClients();
         setProducts(productData.products);
+        setSuppliers(supplierData.suppliers);
+        setClients(clientData.clients);
       } catch (error) {
         showMessage(
           error.response?.data?.message || "Error Getting Products: " + error
@@ -22,7 +30,7 @@ const GenerateOrderPage = () => {
       }
     };
 
-    fetchproducts();
+    fetchproductsSuppliersClients();
   }, []);
 
   const handleSubmit = async (e) => {
@@ -37,6 +45,8 @@ const GenerateOrderPage = () => {
       quantity: parseInt(quantity),
       orderType,
       description,
+      supplierId,
+      clientId
     };
     console.log(body)
 
@@ -56,6 +66,8 @@ const GenerateOrderPage = () => {
     setOrderType("");
     setDescription("");
     setQuantity("");
+    setClientId("");
+    setSuppplierId("");
   };
 
   //metjhod to show message or errors
@@ -95,7 +107,6 @@ const GenerateOrderPage = () => {
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             />
           </div>
 
@@ -125,6 +136,38 @@ const GenerateOrderPage = () => {
               onChange={(e) => setQuantity(e.target.value)}
               required
             />
+          </div>
+
+          <div className="form-group">
+            <label>Select Supplier</label>
+
+            <select
+              value={supplierId}
+              onChange={(e) => setSuppplierId(e.target.value)}
+            >
+              <option value="">Select Supplier</option>
+              {suppliers.map((supplier) => (
+                <option key={supplier.id} value={supplier.id}>
+                  {supplier.email}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Select Client</label>
+
+            <select
+              value={clientId}
+              onChange={(e) => setClientId(e.target.value)}
+            >
+              <option value="">Select Client</option>
+              {clients.map((client) => (
+                <option key={client.id} value={client.id}>
+                  {client.email}
+                </option>
+              ))}
+            </select>
           </div>
 
           <button type="submit">Create New Order</button>

@@ -14,6 +14,12 @@ const Sidebar = () => {
     <div className="sidebar">
       <h1 className="ims">IMS</h1>
       <ul className="nav-links">
+        {isAdmin && (
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          )}
+
         {isAuth && (
           <li>
             <Link to="/orders">Orders</Link>
@@ -29,6 +35,18 @@ const Sidebar = () => {
         {isAdmin && (
           <li>
             <Link to="/product">Product</Link>
+          </li>
+        )}
+
+        {isAdmin && (
+          <li>
+            <Link to="/supplier">Supplier</Link>
+          </li>
+        )}
+
+        {isAdmin && (
+          <li>
+            <Link to="/client">Client</Link>
           </li>
         )}
 
