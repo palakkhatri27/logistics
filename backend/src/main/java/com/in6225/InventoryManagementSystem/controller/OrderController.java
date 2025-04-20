@@ -23,7 +23,7 @@ public class OrderController {
     @GetMapping("/all")
     public ResponseEntity<Response> getAllOrders(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "100") int size,
             @RequestParam(required = false) String filter) {
 
         System.out.println("SEARCH VALUE IS: " +filter);
