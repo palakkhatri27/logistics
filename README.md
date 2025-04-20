@@ -1,15 +1,15 @@
 # Logistics
 
 Running the application <br>
-Git clone <br>
+<h3> Git clone </h3> <br>
 git clone https://github.com/palakkhatri27/logistics.git <br>
-Start up Docker <br>
+<h3> Start up Docker </h3> <br>
 docker-compose up --build <br>
-App can be accessed on <br>
+<h3> App can be accessed on </h3> <br>
 http://localhost:5173/login <br>
 Admin username - admin <br>
 Admin password - adminWarehouse123 <br>
-Shutdown Docker <br>
+<h3> Shutdown Docker </h3> <br>
 docker-compose down <br>
-Shutting down Docker also removing data from DB <br>
+<h3> Shutting down Docker also removing data from DB </h3> <br>
 docker-compose down -v <br>
