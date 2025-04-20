@@ -60,17 +60,17 @@ export default class ApiService {
 
     /**  AUTHENTICATION AND USERS API ENDPOINTS*/
 
-    static async registerUser(registerData) {
-        const response = await axios.post(`${this.BASE_URL}/auth/register`, registerData)
-        return response.data;
-    }
-
-
     static async loginUser(loginData) {
         const response = await axios.post(`${this.BASE_URL}/auth/login`, loginData)
         return response.data;
     }
 
+    static async registerUser(registerData) {
+        const response = await axios.post(`${this.BASE_URL}/auth/register`, registerData, {
+            headers: this.getHeader()
+        });
+        return response.data;
+    }
 
     static async getAllUsers() {
         const response = await axios.get(`${this.BASE_URL}/users/all`, {

@@ -16,8 +16,7 @@ const RegisterPage = () => {
     try {
       const registerData = { username, email, password};
       await ApiService.registerUser(registerData);
-      setMessage("Registration Successfull");
-      navigate("/login");
+      setMessage("Registration Successful");
     } catch (error) {
       showMessage(
         error.response?.data?.message || "Error Registering a User: " + error

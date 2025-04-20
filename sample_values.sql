@@ -37,18 +37,6 @@ INSERT INTO supplier (email) VALUES
 ('autozone@supplier.com'),
 ('buildit@supplier.com');
 
--- Insert users (MANAGERS only)
-INSERT INTO user (email, password, role, username) VALUES
-('linda@manager.com', 'pass456', 'MANAGER', 'linda_mgr'),
-('sam@manager.com', 'pass789', 'MANAGER', 'sam_mgr'),
-('kate@manager.com', 'pass321', 'MANAGER', 'kate_mgr'),
-('john@manager.com', 'pass654', 'MANAGER', 'john_mgr'),
-('nina@manager.com', 'pass987', 'MANAGER', 'nina_mgr'),
-('oliver@manager.com', 'pass147', 'MANAGER', 'oliver_mgr'),
-('emma@manager.com', 'pass258', 'MANAGER', 'emma_mgr'),
-('liam@manager.com', 'pass369', 'MANAGER', 'liam_mgr'),
-('sophia@manager.com', 'pass741', 'MANAGER', 'sophia_mgr');
-
 -- Insert products
 INSERT INTO products (description, expiry_date, name, price, sku, stock_quantity, category_id) VALUES
 ('Smartphone - 128GB', '2026-01-01 00:00:00.000000', 'Smartphone', 599.99, 'ELEC-001', 100, 1),
