@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS supplier (
     email VARCHAR(255) NOT NULL
 );
 
-INSERT INTO client (id, email)
-VALUES (1, 'Not Available');
+INSERT INTO client (email)
+VALUES ('Not Available');
 
-INSERT INTO supplier (id, email)
-VALUES (1, 'Not Available')
+INSERT INTO supplier (email)
+VALUES ('Not Available')
