@@ -13,3 +13,20 @@ CREATE TABLE IF NOT EXISTS user (
 INSERT INTO user (username, email, password, role)
 VALUES ('admin', 'admin@example.com', '$2a$10$4.AAQp1N5v4YfEZIyuMcoOt0q/Y6OKJIQr4dFDRos1w/.HqILllJq', 'ADMIN');
 
+-- Client
+CREATE TABLE IF NOT EXISTS client (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL
+);
+
+-- Supplier
+CREATE TABLE IF NOT EXISTS supplier (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL
+);
+
+INSERT INTO client (id, email)
+VALUES (1, 'Not Available');
+
+INSERT INTO supplier (id, email)
+VALUES (1, 'Not Available')
