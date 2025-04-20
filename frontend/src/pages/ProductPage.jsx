@@ -151,12 +151,6 @@ const ProductPage = () => {
           </div>
         )}
       </div>
-
-      <PaginationComponent
-      currentPage={currentPage}
-      totalPages={totalPages}
-      onPageChange={setCurrentPage}
-      />
     </Layout>
   );
 };
