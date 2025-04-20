@@ -144,6 +144,7 @@ const GenerateOrderPage = () => {
             <select
               value={supplierId}
               onChange={(e) => setSuppplierId(e.target.value)}
+              required
             >
               <option value="">Select Supplier</option>
               {suppliers.map((supplier) => (
@@ -160,6 +161,7 @@ const GenerateOrderPage = () => {
             <select
               value={clientId}
               onChange={(e) => setClientId(e.target.value)}
+              required
             >
               <option value="">Select Client</option>
               {clients.map((client) => (

@@ -66,18 +66,20 @@ return(
 
         {suppliers && 
         <ul className="supplier-list">
-            
-            {suppliers.map((supplier) => (
-                <li className="supplier-item" key={supplier.id}>
-                    <span>{supplier.email}</span>
 
-                    <div className="supplier-actions">
-                        <button onClick={()=> navigate(`/edit-supplier/${supplier.id}`)} >Edit</button>
-                        <button onClick={()=> handleDeleteSupplier(supplier.id)} >Delete</button>
-                    </div>
+            {suppliers
+                .filter((supplier) => supplier.id !== 1)
+                .map((supplier) => (
+                    <li className="supplier-item" key={supplier.id}>
+                        <span>{supplier.email}</span>
 
-                </li>
-            ))}
+                        <div className="supplier-actions">
+                            <button onClick={() => navigate(`/edit-supplier/${supplier.id}`)}>Edit</button>
+                            <button onClick={() => handleDeleteSupplier(supplier.id)}>Delete</button>
+                        </div>
+                    </li>
+                )
+            )}
 
         </ul>
         

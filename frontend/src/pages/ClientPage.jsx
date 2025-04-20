@@ -66,18 +66,20 @@ return(
 
         {clients && 
         <ul className="client-list">
-            
-            {clients.map((client) => (
-                <li className="client-item" key={client.id}>
-                    <span>{client.email}</span>
 
-                    <div className="client-actions">
-                        <button onClick={()=> navigate(`/edit-client/${client.id}`)} >Edit</button>
-                        <button onClick={()=> handleDeleteClient(client.id)} >Delete</button>
-                    </div>
+            {clients
+                .filter((client) => client.id !== 1)
+                .map((client) => (
+                    <li className="client-item" key={client.id}>
+                        <span>{client.email}</span>
 
-                </li>
-            ))}
+                        <div className="client-actions">
+                            <button onClick={() => navigate(`/edit-client/${client.id}`)}>Edit</button>
+                            <button onClick={() => handleDeleteClient(client.id)}>Delete</button>
+                        </div>
+                    </li>
+                )
+            )}
 
         </ul>
         
