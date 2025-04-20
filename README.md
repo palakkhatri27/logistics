@@ -1,4 +1,4 @@
-# Logistics
+# Warehouse Inventory Management
 
 Running the application <br>
 <h3> Git clone </h3> 
